@@ -7,7 +7,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "test": "vitest"
+    "test": "vitest",
+    "icons": "node scripts/generate-icons.js public/icons/source.png"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -24,6 +25,7 @@
     "tailwindcss": "^3.4.7",
     "postcss": "^8.4.23",
     "autoprefixer": "^10.4.14",
-    "vitest": "^0.34.3"
+    "vitest": "^0.34.3",
+    "sharp": "^0.32.1"
   }
 }
