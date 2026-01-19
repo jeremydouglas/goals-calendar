@@ -30,6 +30,32 @@ export default function App() {
     loadAll()
   }, [])
 
+  // Keyboard navigation: Left = previous goal, Right = next goal
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      const active = document.activeElement as HTMLElement | null
+      const tag = active?.tagName?.toLowerCase() ?? ''
+      const editable = active?.isContentEditable
+      if (tag === 'input' || tag === 'textarea' || editable) return
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        if (!goals || goals.length === 0) return
+        const idx = goals.findIndex(g => g.id === selectedGoalId)
+        let nextIdx = idx
+        if (e.key === 'ArrowRight') {
+          nextIdx = idx === -1 ? 0 : Math.min(goals.length - 1, idx + 1)
+        } else {
+          nextIdx = idx === -1 ? goals.length - 1 : Math.max(0, idx - 1)
+        }
+        const next = goals[nextIdx]
+        if (next) selectGoal(next.id)
+      }
+    }
+
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [goals, selectedGoalId, selectGoal])
+
   return (
     <div className="min-h-screen w-full bg-gray-900 text-gray-100 pr-6">
       <header className="flex items-center justify-between px-6 py-3 text-xs" style={{ backgroundColor: 'var(--steel-blue)', color: 'white' }}>

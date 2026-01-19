@@ -25,7 +25,7 @@ export default function GoalEditPanel({ onClose }: { onClose: () => void }) {
   if (!goal) return null
 
   async function save() {
-    const next = { ...goal, title, metadata: { ...(goal.metadata || {}), manualPercent: manual === '' ? undefined : Number(manual) } }
+    const next = { ...goal!, title, metadata: { ...(goal!.metadata || {}), manualPercent: manual === '' ? undefined : Number(manual) } }
     await updateGoal(next)
     onClose()
   }
