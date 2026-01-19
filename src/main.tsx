@@ -13,3 +13,10 @@ import applyDailyPalette from './utils/palette'
   )
 })()
 
+// Register a minimal service worker to enable installability in supporting browsers (Safari/Chrome)
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {})
+  })
+}
+
