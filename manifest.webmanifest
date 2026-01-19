@@ -1,0 +1,20 @@
+{
+  "name": "Calendar Goals",
+  "short_name": "Goals",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5efff",
+  "theme_color": "#7371fc",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
