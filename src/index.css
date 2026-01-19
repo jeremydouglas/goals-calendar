@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+
+  /* Color scheme variables (lavender palette requested) */
+  --sand-dune: #e5d9f2; /* lavender-veil */
+  --vanilla-custard: #f5efff; /* lavender-mist */
+  --muted-teal: #cdc1ff; /* periwinkle */
+  --steel-blue: #a594f9; /* soft-periwinkle */
+  --pacific-cyan: #7371fc; /* medium-slate-blue */
+
+  background-color: var(--vanilla-custard);
+  color: var(--pacific-cyan);
+}
+
+/* Utility helpers for palette-aware components */
+.bg-steel { background-color: var(--steel-blue); }
+.bg-vanilla { background-color: var(--vanilla-custard); }
+.bg-muted-teal { background-color: var(--muted-teal); }
+.bg-pacific { background-color: var(--pacific-cyan); }
+.text-on-steel { color: white; }
+.text-on-vanilla { color: #0f172a; }
