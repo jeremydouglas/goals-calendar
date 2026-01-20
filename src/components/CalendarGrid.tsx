@@ -32,7 +32,11 @@ export default function CalendarGrid() {
     dayEntries.filter(e => e.goalId === selectedGoalId && e.contributed).map(e => e.dateIso)
   ), [dayEntries, selectedGoalId])
 
-  const todayIso = new Date().toISOString().slice(0, 10)
+  function localIso(d: Date) {
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+  }
+
+  const todayIso = localIso(new Date())
 
   // clicking now toggles immediately; modal removed
 
@@ -65,6 +69,7 @@ export default function CalendarGrid() {
                           const iso = `${year}-${mm}-${dd}`
                           const contributed = contributedSet.has(iso)
                           const isPast = iso < todayIso
+                          const isToday = iso === todayIso
                           const baseBtnClass = 'w-8 h-8 flex items-center justify-center'
                           const btnStyle: any = { minWidth: 0, minHeight: 0, color: 'var(--pacific-cyan)', backgroundColor: 'transparent' }
 
@@ -82,6 +87,11 @@ export default function CalendarGrid() {
                                 className={baseBtnClass + ' w-full h-full relative overflow-hidden'}
                                 style={btnStyle}
                               >
+                                {isToday && (
+                                  <span className="absolute inset-0 flex items-center justify-center" aria-hidden>
+                                    <span style={{ width: 20, height: 20, borderRadius: 9999, border: '2px solid var(--pacific-cyan)', opacity: 0.95, pointerEvents: 'none', boxSizing: 'border-box' }} />
+                                  </span>
+                                )}
                                 {contributed ? (
                                   <svg className="relative z-20" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
                                     <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
