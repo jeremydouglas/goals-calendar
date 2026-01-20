@@ -2,6 +2,8 @@
 
 Client-only React + TypeScript app to track yearly goals on a day-by-day calendar. Uses Dexie (IndexedDB) for persistence, Tailwind for styles, and Zustand for state.
 
+https://goals.hoovy.link
+
 Quick start
 
 ```bash
