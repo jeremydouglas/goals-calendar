@@ -11,9 +11,9 @@ body {
   /* Color scheme variables (lavender palette requested) */
   --sand-dune: #e5d9f2; /* lavender-veil */
   --vanilla-custard: #f5efff; /* lavender-mist */
-  --muted-teal: #cdc1ff; /* periwinkle */
+  --muted-teal: #302e34; /* periwinkle */
   --steel-blue: #a594f9; /* soft-periwinkle */
-  --pacific-cyan: #7371fc; /* medium-slate-blue */
+  --pacific-cyan: #d1d0f6; /* medium-slate-blue */
 
   background-color: var(--vanilla-custard);
   color: var(--pacific-cyan);
@@ -25,4 +25,4 @@ body {
 .bg-muted-teal { background-color: var(--muted-teal); }
 .bg-pacific { background-color: var(--pacific-cyan); }
 .text-on-steel { color: white; }
-.text-on-vanilla { color: #0f172a; }
+.text-on-vanilla { color: #ccd4e8; }
